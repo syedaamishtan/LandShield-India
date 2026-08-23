@@ -172,9 +172,6 @@
           <div class="tg-metric"><span>IMPACT</span><strong>${escapeHtml(a.impact || "UNKNOWN")}</strong></div>
           <div class="tg-metric"><span>PRIORITY</span><strong>${escapeHtml(r.priority || "UNKNOWN")}</strong></div>
         </div>
-        <div class="tg-card"><div class="tg-label">LAND COVER</div><p>${escapeHtml(JSON.stringify(a.landcover || {}, null, 2))}</p></div>
-        <div class="tg-card"><div class="tg-label">FLOOD</div><p>${escapeHtml(JSON.stringify(a.flood || {}, null, 2))}</p></div>
-        <div class="tg-card"><div class="tg-label">DAMAGE</div><p>${escapeHtml(JSON.stringify(a.damage || {}, null, 2))}</p></div>
         <div class="tg-card"><div class="tg-label">AI SUMMARY</div><p>${escapeHtml(r.summary || "No summary returned.")}</p></div>
         <div class="tg-card"><div class="tg-label">ANALYSIS</div><p>${escapeHtml(r.analysis || "No analysis returned.")}</p></div>
         <div class="tg-card"><div class="tg-label">RECOMMENDATIONS</div>${recs.length ? '<div class="tg-recs">' + recs.map((x,i) => `<div class="tg-rec"><span class="tg-rec-num">${String(i+1).padStart(2,"0")}</span><p>${escapeHtml(x)}</p></div>`).join("") + '</div>' : '<p>No recommendations returned.</p>'}</div>
