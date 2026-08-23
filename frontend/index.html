@@ -31,6 +31,7 @@
       <li class="nav-item" data-page="riskmap"><span class="ico">◎</span><span class="nav-label">Risk Map</span></li>
       <li class="nav-item" data-page="alerts"><span class="ico">▲</span><span class="nav-label">Alerts</span></li>
       <li class="nav-item" data-page="fieldreports"><span class="ico">✎</span><span class="nav-label">Field Reports</span></li>
+      <li class="nav-item" data-page="terragaurd"><span class="ico">✦</span><span class="nav-label">TerraGuard Intelligence</span></li>
       <li class="nav-item" data-page="analytics"><span class="ico">◆</span><span class="nav-label">Analytics</span></li>
       <li class="nav-item" data-page="about"><span class="ico">ℹ</span><span class="nav-label">About</span></li>
     </ul>
@@ -137,7 +138,7 @@
       <section class="page" id="page-alerts">
         <h2 class="section-heading">Alerts</h2>
         <p class="section-sub">Points classified <strong>High</strong> or <strong>Very High</strong> susceptibility by the V1 model, sorted by risk score. These are model outputs on existing GSI sample points, not live monitoring alerts.</p>
-        <div class="kpi-grid" id="alertKpiGrid" style="grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));"></div>
+        <div class="kpi-grid" id="alertKpiGrid" style="grid-template-columns:repeat(auto-fit, minmax(160px, 1fr);"></div>
         <div class="filter-bar">
           <input type="text" id="alertSearch" placeholder="Search by state...">
           <select id="alertBandFilter">
@@ -356,5 +357,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
+<script src="js/terragaurd.js"></script>
 </body>
 </html>
