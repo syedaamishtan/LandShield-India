@@ -246,39 +246,44 @@
         <h2 class="section-heading">Analytics</h2>
         <p class="section-sub">Real V1 statistics only — nothing on this page is estimated or fabricated.</p>
 
-        <div class="grid-2col" style="margin-bottom:16px;">
-          <div class="chart-card">
-            <div class="card-title">Susceptibility band distribution</div>
-            <div class="card-subtitle">All 6,707 cleaned GSI sample points</div>
-            <div class="chart-canvas-wrap"><canvas id="chartBands"></canvas></div>
+        <div class="grid-2col" style="grid-template-columns:1.2fr .8fr;">
+          <div class="card">
+            <div class="card-title">Risk-band distribution</div>
+            <div class="card-subtitle">Existing GSI sample points</div>
+            <div class="chart-wrap"><canvas id="chartBands"></canvas></div>
           </div>
-          <div class="chart-card">
-            <div class="card-title">Dataset class balance</div>
-            <div class="card-subtitle">Documented landslide points vs. background points</div>
-            <div class="chart-canvas-wrap"><canvas id="chartClass"></canvas></div>
+          <div class="card">
+            <div class="card-title">Class composition</div>
+            <div class="card-subtitle">Documented landslide vs background points</div>
+            <div class="chart-wrap"><canvas id="chartClass"></canvas></div>
           </div>
         </div>
 
-        <div class="chart-card">
-          <div class="card-title">Points per state / UT</div>
-          <div class="card-subtitle">Distribution of the 6,707 sample points across covered states</div>
+        <div class="card">
+          <div class="card-title">GSI sample points by state/UT</div>
+          <div class="card-subtitle">Count of cleaned training/test rows</div>
           <div id="stateBarList"></div>
         </div>
       </section>
 
       <!-- ================= ABOUT ================= -->
       <section class="page" id="page-about">
-        <h2 class="section-heading">About LandShield India</h2>
-        <p class="section-sub">A landslide susceptibility assessment platform for North-East and hill-state India, currently at V1.</p>
+        <h2 class="section-heading">About</h2>
+        <p class="section-sub">Model, training data, evaluation, and data sources</p>
 
-        <div class="grid-2col" style="margin-bottom:16px;">
+        <div class="card">
+          <div class="card-title">About LandShield India</div>
+          <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.7;">A landslide susceptibility assessment platform for North-East and hill-state India, currently at V1.</p>
+        </div>
+
+        <div class="grid-2col">
           <div class="card">
             <div class="card-title">Model</div>
             <div class="info-grid">
               <div class="info-item"><div class="il">Model type</div><div class="iv">XGBoost binary classifier</div></div>
               <div class="info-item"><div class="il">Model name</div><div class="iv">Landslide Susceptibility / Risk Classification Model</div></div>
               <div class="info-item"><div class="il">Target</div><div class="iv">landslide_event (GSI-documented vs. background point)</div></div>
-              <div class="info-item"><div class="il">Train/test split</div><div class="iv">Spatial split by 0.5&deg; grid cell (not random)</div></div>
+              <div class="info-item"><div class="il">Train/test split</div><div class="iv">Spatial split by 0.5° grid cell (not random)</div></div>
             </div>
           </div>
           <div class="card">
@@ -287,23 +292,23 @@
               <div class="info-item"><div class="il">Cleaned dataset</div><div class="iv">6,707 rows</div></div>
               <div class="info-item"><div class="il">Positive (documented landslide)</div><div class="iv">2,223</div></div>
               <div class="info-item"><div class="il">Negative (background)</div><div class="iv">4,484</div></div>
-              <div class="info-item"><div class="il">States/UTs covered</div><div class="iv" id="aboutStates">—</div></div>
+              <div class="info-item"><div class="il">States/UTs covered</div><div class="iv">16 states/UTs</div></div>
             </div>
           </div>
         </div>
 
-        <div class="card" style="margin-bottom:16px;">
+        <div class="card">
           <div class="card-title">Model features</div>
           <div class="card-subtitle">4 features used by the current (V1) model</div>
           <div class="info-grid">
-            <div class="info-item"><div class="il">elevation_m</div><div class="iv">Elevation, in metres</div></div>
+            <div class="info-item"><div class="il">elevation</div><div class="iv">Elevation, in metres</div></div>
             <div class="info-item"><div class="il">slope_deg</div><div class="iv">Terrain slope, in degrees</div></div>
             <div class="info-item"><div class="il">historical_landslide_density</div><div class="iv">Count of documented landslides within 10km</div></div>
             <div class="info-item"><div class="il">historical_landslide_distance</div><div class="iv">Distance to nearest documented landslide, in km</div></div>
           </div>
         </div>
 
-        <div class="grid-2col" style="margin-bottom:16px;">
+        <div class="grid-2col">
           <div class="card">
             <div class="card-title">Evaluation</div>
             <div class="card-subtitle">Held-out spatial test split</div>
@@ -322,20 +327,12 @@
           </div>
         </div>
 
-        <div class="card" style="margin-bottom:16px;">
-          <div class="card-title">Data sources</div>
-          <div class="info-grid">
-            <div class="info-item"><div class="il">Landslide inventory</div><div class="iv">Geological Survey of India (GSI) dated landslide records</div></div>
-            <div class="info-item"><div class="il">Elevation &amp; slope</div><div class="iv">Digital elevation tiles (terrain features script)</div></div>
-            <div class="info-item"><div class="il">Historical density &amp; distance</div><div class="iv">Computed against the full GSI landslide inventory</div></div>
-          </div>
-        </div>
-
         <div class="card">
-          <div class="card-title">How to read the risk score</div>
-          <p style="font-size:12.5px; color:var(--text-secondary); line-height:1.7;">
-            The risk score shown throughout this platform is a relative susceptibility score learned from historical patterns — it is <strong>not</strong> a scientifically validated landslide probability, and the model does <strong>not</strong> predict the occurrence, timing, or exact location of a specific future landslide. It should be used alongside official advisories and field verification, not in place of them.
-          </p>
+          <div class="card-title">Data sources</div>
+          <div class="grid-2col">
+            <div><div class="il">Landslide inventory</div><div class="iv">Geological Survey of India (GSI) dated landslide records</div></div>
+            <div><div class="il">Elevation &amp; slope</div><div class="iv">Digital elevation tiles (terrain features script)</div></div>
+          </div>
         </div>
       </section>
 
@@ -357,6 +354,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
+<script src="js/terragaurd-config.js"></script>
 <script src="js/terragaurd.js"></script>
 </body>
 </html>
