@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const API_URL = "https://scholar-bigger-experts-healthy.trycloudflare.com";
+  const API_URL = (window.TERRAGUARD_CONFIG && window.TERRAGUARD_CONFIG.API_URL) || "";
 
   const STYLE = `
     .tg-page .tg-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:16px}
@@ -184,6 +184,10 @@
       clearError();
       if (!selectedFile) {
         error("Please upload a satellite or aerial image first.");
+        return;
+      }
+      if (!API_URL) {
+        error("TerraGuard API is not configured. Set API_URL in js/terragaurd-config.js.");
         return;
       }
       const formData = new FormData();
