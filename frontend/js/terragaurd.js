@@ -56,12 +56,10 @@
     const analytics = document.getElementById("page-analytics");
     if (!navList || !content) return;
 
-    const nav = document.createElement("li");
-    nav.className = "nav-item";
-    nav.setAttribute("data-page", "terragaurd");
-    nav.innerHTML = '<span class="ico">✦</span><span class="nav-label">TerraGuard Intelligence</span>';
-    const fieldReports = navList.querySelector('[data-page="fieldreports"]');
-    if (fieldReports) fieldReports.after(nav); else navList.appendChild(nav);
+    // The TerraGuard navigation item is already present in index.html.
+    // Reuse it instead of creating a second sidebar entry.
+    const nav = navList.querySelector('[data-page="terragaurd"]');
+    if (!nav) return;
 
     const page = document.createElement("section");
     page.className = "page tg-page";
