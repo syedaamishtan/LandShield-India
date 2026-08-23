@@ -1,543 +1,307 @@
 # 🛰️ LandShield India
 
-## AI-Powered Landslide Risk Monitoring & Response Platform for Northeast India
+## AI-Assisted Disaster Risk, Red-Zone & Relocation Decision-Support Platform
 
 **Smart India Hackathon 2026 — SIH26001**  
-**Category:** Disaster Management  
+**Organization:** Ministry of Home Affairs  
+**Department:** National Disaster Response Force (NDRF), DM Division  
+**Category:** Software  
+**Theme:** Disaster Management  
 
 ---
 
-## 🌏 Overview
+## 🎯 Problem Statement
 
-**LandShield India** is an AI-powered geospatial decision-support platform designed to assess, visualize and monitor landslide risk across the **Northeastern Region (NER) of India**.
+LandShield India is being developed in response to SIH26001: **Intelligent Identification of Hazard-Based Red Zones, Carrying Capacity Assessment, and Immediate Relocation Needs for Vulnerable Habitations.**
 
-The platform combines multiple geospatial and environmental information layers, including:
+India's disaster-prone regions face recurring hazards including **landslides, floods, coastal erosion and cloudbursts**. Vulnerable habitations can remain in unsafe zones, resulting in repeated loss of life and property. Relocation efforts are often reactive and begin after disasters have already occurred rather than being supported by proactive, evidence-based planning.
 
-- 🌧️ Rainfall and environmental conditions
-- ⛰️ Elevation and terrain characteristics
-- 📐 Slope
-- 🛰️ NDVI / vegetation information
-- 📍 Historical landslide locations
-- 🗺️ Historical landslide susceptibility
-- 🛣️ Roads and infrastructure
-- 🏘️ Settlements and critical facilities
-- 👥 Field and citizen observations
+The problem calls for an intelligent, GIS-enabled decision-support platform that can:
 
-These inputs are processed into a machine-learning-based risk assessment and visualized through GIS maps.
+- Dynamically identify and update **hazard-based Red Zones** — areas unsuitable for permanent habitation.
+- Assess the **carrying capacity and suitability of safer alternative sites**.
+- Integrate **hazard intensity, population vulnerability and disaster history**.
+- Prioritize vulnerable habitations that require relocation.
+- Support **immediate, short-term and medium-term relocation planning**.
+- Provide actionable insights to **State Disaster Management Authorities and other disaster-management stakeholders**.
 
-The core objective is not simply to identify landslide-prone areas, but to connect:
-
-> **Risk → Explanation → Impact → Priority → Action**
+The objective is therefore broader than a single hazard or a single region. LandShield India is designed as a framework for **multi-hazard spatial risk, vulnerable-habitation prioritization and relocation decision support across India**.
 
 ---
 
-# 🎯 Problem Statement
+## 💡 LandShield India Solution
 
-The **Northeastern Region of India** contains extensive mountainous and hilly terrain with steep slopes and areas susceptible to landslides.
-
-Landslide information can originate from many different sources, such as:
-
-- Rainfall and environmental conditions
-- Terrain and elevation
-- Slope
-- Vegetation
-- Historical landslide inventories
-- GIS datasets
-- Roads and infrastructure
-- Settlements and critical facilities
-- Field observations
-
-The challenge is not only to identify areas that may be susceptible to landslides, but also to combine these different information layers into an understandable and actionable decision-support system.
-
-Authorities and disaster-management teams need to answer questions such as:
-
-> **Where is the risk highest?**
-
-> **Why is the risk high?**
-
-> **What could be affected?**
-
-> **Where should response efforts be prioritized?**
-
-LandShield India is designed around these questions.
-
----
-
-# 💡 Our Solution
-
-LandShield India creates an integrated geospatial workflow that combines environmental data, terrain information, historical landslide evidence and machine learning.
-
-The platform follows the workflow:
+LandShield India combines geospatial analysis, machine learning, AI-assisted assessment and human field verification into a common decision-support workflow.
 
 ```text
-Data Sources
-     ↓
-Data Preparation & Cleaning
-     ↓
-Feature Engineering
-     ↓
-Machine Learning Model
-     ↓
-Risk Assessment
-     ↓
-Explainable AI (SHAP)
-     ↓
-GIS Risk Visualization
-     ↓
-Impact Assessment
-     ↓
-Response Prioritization
-     ↓
-Decision Support
-````
-
-The broader approach is:
-
-> **Predict → Verify → Assess Impact → Prioritize → Alert**
-
----
-
-# 🧩 Key Features
-
-## 1. 🧠 AI-Based Risk Assessment
-
-LandShield India uses machine-learning models to analyze multiple environmental and geospatial features and generate a landslide-risk indicator.
-
-The repository supports machine-learning workflows using:
-
-* **XGBoost**
-* **Random Forest**
-* **Scikit-learn**
-
-The exact model and feature set can be configured according to data availability and validation results.
-
----
-
-## 2. 🌧️ Environmental & Terrain Analysis
-
-The system can combine environmental and terrain variables such as:
-
-| Feature                                | Purpose                                            |
-| -------------------------------------- | -------------------------------------------------- |
-| 🌧️ Rainfall / Environmental Variables | Represent changing environmental conditions        |
-| ⛰️ Elevation                           | Represent terrain characteristics                  |
-| 📐 Slope                               | Identify steep terrain                             |
-| 🌿 NDVI                                | Represent vegetation condition                     |
-| 📍 Historical Landslides               | Provide historical spatial evidence                |
-| 🗺️ Historical Susceptibility          | Represent long-term spatial risk                   |
-| 💧 Environmental Indicators            | Represent changing ground/environmental conditions |
-
-These features are transformed into model-ready data through the project's geospatial preprocessing pipeline.
-
----
-
-# 📊 Risk Score
-
-The model produces a **risk score** that can be represented on a 0–100 scale for visualization and decision support.
-
-A prototype classification can use:
-
-|  Score | Risk Level   |
-| -----: | ------------ |
-|   0–20 | 🟢 LOW       |
-|  21–40 | 🟡 MODERATE  |
-|  41–60 | 🟠 ELEVATED  |
-|  61–80 | 🔴 HIGH      |
-| 81–100 | 🚨 VERY HIGH |
-
-> **Important:** These thresholds are configurable prototype thresholds. They should be calibrated and validated using appropriate independent data before operational deployment.
-
-The current risk score should be interpreted as a **prototype decision-support indicator**, not as a scientifically validated probability that a landslide will occur.
-
----
-
-# 🔍 Explainable AI
-
-A major component of LandShield India is **explainability**.
-
-Instead of showing only:
-
-```text
-Risk Score: 82 / 100
-Risk Level: VERY HIGH
+Hazard & Geospatial Data
+          ↓
+Data Cleaning & Preparation
+          ↓
+Spatial Feature Engineering
+          ↓
+Hazard / Susceptibility Assessment
+          ↓
+GIS Red-Zone & Risk Visualization
+          ↓
+Vulnerability / Impact Assessment
+          ↓
+Relocation-Site & Carrying-Capacity Assessment
+          ↓
+Vulnerable-Habitation Prioritization
+          ↓
+Field Verification
+          ↓
+Decision Support for Authorities
 ```
 
-the system can identify important contributing factors.
+The broader decision-support chain is:
 
-For example:
+> **Identify → Assess → Verify → Prioritize → Relocate → Monitor**
+
+The current public prototype implements the **landslide susceptibility and assessment component** most concretely, while the architecture is intended to grow toward the complete SIH26001 multi-hazard and relocation objective.
+
+---
+
+# 🧭 What the Platform Is Designed to Answer
+
+LandShield India is designed around practical questions faced by disaster-management authorities:
+
+### 1. Where are hazardous or potentially unsafe zones?
+
+Use historical hazard information, terrain and other spatial evidence to identify areas requiring attention.
+
+### 2. Which habitations are most vulnerable?
+
+Combine hazard exposure with habitation/population and other vulnerability information to support prioritization.
+
+### 3. What could be affected?
+
+Assess potential exposure of settlements, roads, infrastructure and critical facilities.
+
+### 4. Where could safer relocation happen?
+
+Evaluate candidate locations using suitability and carrying-capacity information as the relocation component is expanded.
+
+### 5. What requires immediate attention?
+
+Prioritize vulnerable habitations and field observations so authorities can focus limited response resources where they matter most.
+
+---
+
+# 🗺️ Current Web Platform
+
+The deployed prototype provides a dashboard-style decision-support interface with:
+
+- **Dashboard** — overview of the current V1 landslide model and dataset.
+- **Risk Map** — interactive visualization of model susceptibility scores on existing GSI sample points.
+- **Alerts** — elevated-susceptibility points from the V1 model.
+- **Field Reports** — human-in-the-loop submission of observed ground conditions and evidence.
+- **TerraGuard Intelligence** — AI-assisted assessment of uploaded satellite/aerial imagery through the GeoGuard AI service.
+- **Analytics** — model and dataset statistics.
+- **About** — model, training data, evaluation and project scope.
+
+The frontend is published through **GitHub Pages** from the repository's `docs/` directory.
+
+---
+
+# 🧠 Current V1 Machine-Learning Model
+
+The current V1 model is a **landslide susceptibility / risk classification model** built from GSI-derived sample data.
+
+### V1 model features
+
+The current trained model uses four features:
+
+| Feature | Meaning |
+|---|---|
+| `elevation_m` | Elevation in metres |
+| `slope_deg` | Terrain slope in degrees |
+| `historical_landslide_density` | Historical documented-landslide density within the configured spatial neighbourhood |
+| `historical_landslide_distance` | Distance to the nearest documented historical landslide |
+
+Rainfall, soil-moisture and NDVI-derived variables exist in the broader data pipeline but are **not part of the current V1 trained feature set** because of missingness in the current table. They are candidates for later model versions.
+
+---
+
+# 📊 V1 Dataset
+
+The current cleaned V1 dataset contains **6,707 sample records covering 16 states/UTs**:
+
+- **2,223** documented landslide points
+- **4,484** background / pseudo-negative points
+- **6,707** total records
+
+The model uses a spatial train/test split based on **0.5° grid cells**, rather than a purely random row split.
+
+This dataset is a **V1 landslide-susceptibility dataset**. It should not be interpreted as a complete national hazard inventory or as the final implementation of the full multi-hazard relocation problem statement.
+
+---
+
+# 📈 V1 Model Evaluation
+
+The current held-out spatial test results are:
+
+| Metric | V1 result |
+|---|---:|
+| Accuracy | 0.9536 |
+| Precision | 0.9455 |
+| Recall | 0.8490 |
+| F1 score | 0.8946 |
+| ROC-AUC | 0.9657 |
+
+The model is intended to provide a **relative susceptibility / decision-support score**, not a scientifically validated probability of a future landslide.
+
+### Important limitation
+
+The current historical-density and historical-distance features were computed against the full available GSI inventory without a per-sample date cutoff. This creates a possible form of **temporal leakage**, so the reported metrics should be treated as an optimistic upper bound until time-safe historical features are recomputed.
+
+---
+
+# 🛰️ TerraGuard Intelligence
+
+TerraGuard extends LandShield beyond the static V1 susceptibility map by providing an AI-assisted imagery assessment workflow.
+
+Users can upload satellite or aerial imagery and request an assessment through the GeoGuard AI backend.
+
+The current interface is designed around:
 
 ```text
-Risk Score: 82 / 100
-
-Risk Level: VERY HIGH
-
-Important contributing factors:
-- High slope
-- Historical landslide susceptibility
-- Environmental conditions
-- Vegetation indicator
+Satellite / Aerial Image
+          ↓
+GeoGuard SegFormer
+          ↓
+Local Gemma 2 Reasoning
+          ↓
+Assessment
+          ↓
+Recommendations
+          ↓
+HTML / PDF Report
 ```
 
-The project uses **SHAP (SHapley Additive exPlanations)** to help interpret model predictions.
-
-This makes the system easier to:
-
-* Understand
-* Audit
-* Compare
-* Debug
-* Communicate to decision-makers
-
-The objective is to answer:
-
-> **Why did the model assign this area a high-risk score?**
+TerraGuard is an **AI-assisted assessment component**, not an official disaster-warning system.
 
 ---
 
-# 🗺️ GIS-Based Risk Mapping
+# 👥 Field Verification
 
-LandShield India converts model outputs into spatially understandable GIS risk maps.
+LandShield follows a human-in-the-loop approach because model outputs and remote sensing cannot replace ground verification.
 
-The GIS component can be used to:
+The Field Reports workflow allows a user to submit:
 
-* Identify high-risk regions
-* Visualize spatial risk patterns
-* Display historical landslide locations
-* Compare risk across locations
-* Support infrastructure impact assessment
-* Provide a visual interface for disaster-management teams
+- State / Union Territory
+- Location description
+- Observation type
+- Description of the observed condition
+- Photographic field evidence
+- Current location, where available
 
-The repository includes generated GIS/map outputs under the `maps/` directory.
+Examples of observations include visible cracks, rockfall, soil movement and road blockage.
 
----
-
-# 🚨 From Risk to Response Priority
-
-A key difference in the LandShield India approach is that the system does not stop at:
-
-> **"This location has high landslide risk."**
-
-It also attempts to determine:
-
-> **"What could be affected if a landslide occurs here?"**
-
-Potential impact layers can include:
-
-* 🛣️ Roads
-* 🏘️ Villages / settlements
-* 🏥 Hospitals
-* 🏫 Schools
-* ⚡ Critical infrastructure
-* 🚧 Important transport routes
-
-This allows a risk map to become a **response-prioritization tool**.
+The purpose is to connect model-assisted assessment with **real observations from the ground**.
 
 ---
 
-## Example
+# 🏘️ Relocation & Carrying-Capacity Vision
 
-```text
-AREA A
+The SIH26001 objective goes beyond identifying hazardous locations. A complete system must also help determine:
 
-Landslide Risk:     82 / 100
-Risk Level:         VERY HIGH
+1. **Which habitations should be considered unsafe for permanent habitation?**
+2. **Which vulnerable habitations should receive relocation priority?**
+3. **Which candidate sites are suitable for relocation?**
+4. **Can those sites support the expected population and essential services?**
+5. **What are the immediate, short-term and medium-term relocation options?**
 
-Potential Impact:
-- 2 roads
-- 3 settlements
-- 1 critical facility
+The LandShield architecture is intended to support these functions through future integration of:
 
-Response Priority: #1
-```
+- Hazard intensity and hazard-specific Red Zones
+- Population and habitation vulnerability
+- Disaster history
+- Land-use and land-suitability information
+- Infrastructure accessibility
+- Essential-service availability
+- Candidate-site carrying capacity
+- Relocation prioritization
+- Field verification
 
-The purpose is to help decision-makers distinguish between:
-
-```text
-High Risk + Low Impact
-```
-
-and
-
-```text
-High Risk + High Impact
-```
-
-so that limited response resources can be prioritized more effectively.
+These capabilities should be developed and validated progressively; the current V1 prototype should not be presented as already solving every relocation or carrying-capacity requirement.
 
 ---
 
-# 👥 Human-in-the-Loop Verification
+# 🌏 Multi-Hazard Scope
 
-Environmental data and AI predictions should not be treated as the only source of truth.
+The **problem statement is not limited to landslides and is not limited to Northeast India**.
 
-LandShield India is designed around a **human-in-the-loop** approach where field officers and citizens can contribute observations.
+The broader target includes recurring hazards such as:
 
-Possible observations include:
+- 🌋 Landslides
+- 🌊 Floods
+- 🌊 Coastal erosion
+- ⛈️ Cloudbursts
+- Other hazard layers that can be incorporated as the platform expands
 
-* Visible ground cracks
-* Slope movement
-* Road blockage
-* New landslide occurrence
-* Drainage problems
-* Suspected ground deformation
-* Photographic evidence
+The current V1 implementation is strongest on **landslide susceptibility**, using GSI-derived data. This is a deliberate implementation stage within the larger SIH26001 architecture.
 
-### Verification Workflow
-
-```text
-Citizen / Field Report
-        ↓
-Geo-tagged Observation
-        ↓
-LandShield India Platform
-        ↓
-Admin / Authority Review
-        ↓
-Verified Observation
-        ↓
-Decision Support
-```
-
-This approach allows local observations to complement satellite, environmental and historical datasets.
+The long-term platform should be able to combine multiple hazard layers to support a common spatial view of vulnerability and relocation needs.
 
 ---
 
-# 🧠 Why Human Verification Matters
+# 🗺️ Geographic Scope
 
-AI models operate on available data.
+LandShield India is intended for **India-wide application** rather than being an exclusively Northeast-India product.
 
-Real-world conditions can change quickly, and some important observations may not immediately appear in environmental or satellite datasets.
+The current V1 dataset covers **16 states/UTs**, and the existing landslide data pipeline includes a Sikkim pilot dataset. These are implementation/data-availability details of the current prototype — they do not define the geographic scope of the SIH26001 problem statement.
 
-For example:
-
-```text
-Model detects elevated risk
-        +
-Field officer reports new ground cracks
-        ↓
-Higher confidence for investigation
-```
-
-Similarly, field observations can provide information about:
-
-* Newly occurring landslides
-* Road blockages
-* Local drainage issues
-* Visible slope instability
-
-In future versions, verified observations can also contribute to improving the underlying datasets and models.
+The architecture is intended to scale as additional hazard, population, infrastructure and relocation-site datasets become available.
 
 ---
 
-# 🛰️ Data Sources
+# 🧪 Data & GIS Pipeline
 
-The project is designed to work with multiple geospatial and environmental sources.
+The repository contains scripts and datasets for:
 
-Potential sources include:
+- GSI landslide-inventory cleaning and normalization
+- Historical landslide processing
+- Terrain feature preparation
+- NDVI feature preparation
+- Environmental feature preparation
+- Pseudo-negative/background sampling
+- Training-table construction
+- Model prediction generation
+- GIS risk-map generation
 
-* **Rainfall / environmental datasets**
-* **DEM / elevation datasets**
-* **SRTM / OpenTopography**
-* **Sentinel-2 imagery**
-* **NDVI-derived vegetation information**
-* **Historical landslide inventories**
-* **ISRO / GSI / Bhuvan datasets**
-* **NASA COOLR as a fallback inventory source**
-* **OpenStreetMap infrastructure data**
-* **Field / citizen observations**
-
-The exact source used for a particular feature depends on data availability, coverage, format and validation requirements.
-
----
-
-# 📚 Historical Landslide Data
-
-Historical landslide information provides spatial evidence about areas where landslides have previously occurred.
-
-The project supports historical inventory processing and conversion into model-ready datasets.
-
-Historical events can be used to:
-
-* Identify spatial patterns
-* Build susceptibility features
-* Generate training labels
-* Evaluate model predictions
-* Compare model output against known events
-
-### Training concept
-
-The ML dataset can contain:
-
-```text
-Positive Samples
-    ↓
-Documented landslide locations
-
-Negative / Background Samples
-    ↓
-Locations without documented landslide events
-```
-
-Negative/background samples must be constructed carefully because:
-
-> **An area without a recorded landslide is not necessarily an area where no landslide occurred.**
-
-Therefore, model evaluation and interpretation should account for inventory completeness and spatial sampling limitations.
-
----
-
-# 🧪 Machine Learning Pipeline
-
-The general ML workflow is:
-
-```text
-Historical Landslide Inventory
-             +
-Terrain Features
-             +
-Environmental Features
-             +
-NDVI / Vegetation Features
-             +
-Historical Susceptibility
-             ↓
-       Feature Engineering
-             ↓
-       Data Cleaning
-             ↓
-     Training Dataset
-             ↓
-      ML Model Training
-             ↓
-       Model Evaluation
-             ↓
-       Risk Prediction
-             ↓
-      SHAP Explanation
-             ↓
-        GIS Mapping
-```
-
----
-
-# 📈 Model Evaluation
-
-Model performance should not be judged using accuracy alone.
-
-Depending on the final training setup, useful evaluation metrics can include:
-
-* Precision
-* Recall
-* F1-score
-* ROC-AUC
-* PR-AUC
-* Confusion Matrix
-* Spatial validation performance
-
-Because geospatial data can be highly correlated spatially, random splitting can produce overly optimistic results.
-
-Therefore, the project considers:
-
-* **Spatial holdout regions**
-* **Independent historical events**
-* **Different time periods**
-* **Additional landslide inventories**
-* **Expert/geological validation**
-
-These approaches can provide a more realistic assessment of model generalization.
-
----
-
-# ⚠️ Spatial Data Leakage
-
-Spatial data requires special attention during model evaluation.
-
-Nearby pixels or locations can have very similar:
-
-* Terrain
-* Rainfall
-* Vegetation
-* Soil/environmental characteristics
-
-If nearby locations appear in both training and testing datasets, the model may appear more accurate than it actually is.
-
-Therefore, LandShield India aims to support **spatially separated validation** wherever sufficient data is available.
-
----
-
-# 🗺️ Sikkim Pilot
-
-The current prototype focuses on **Sikkim** as a pilot region before expanding the architecture across the wider Northeastern Region.
-
-Sikkim provides a practical pilot environment for testing the complete workflow involving:
-
-```text
-Historical Landslides
-        +
-Terrain
-        +
-Environmental Conditions
-        +
-NDVI
-        ↓
-Machine Learning
-        ↓
-Risk Assessment
-        ↓
-GIS Visualization
-```
-
-Once the pipeline is validated and improved, the architecture can be extended to other NER states.
+The current V1 model deliberately uses only the four features listed above. Broader data layers are part of the project's expansion path rather than claims about the current trained model.
 
 ---
 
 # 📁 Repository Structure
 
-The repository contains data-processing scripts, geospatial workflows, model-related datasets and frontend/map components.
-
 ```text
 LandShield-India/
-│
 ├── data/
-│   │
-│   ├── environmental/
-│   │   ├── gsi_environmental_features.csv
-│   │   └── ...
-│   │
-│   ├── terrain/
+│   ├── gsi/
+│   │   ├── gsi_dated_events.csv
+│   │   ├── gsi_historical_susceptibility.csv
+│   │   ├── gsi_landslide_inventory.csv
+│   │   ├── gsi_landslide_inventory_normalized.csv
+│   │   ├── gsi_model_training.csv
+│   │   ├── gsi_ndvi_features.csv
+│   │   ├── gsi_ner_training_table.csv
+│   │   ├── gsi_pseudo_negative_samples.csv
 │   │   ├── gsi_terrain_features.csv
-│   │   └── ...
-│   │
-│   ├── ndvi/
-│   │   └── gsi_ndvi_features.csv
-│   │
-│   ├── landslides/
-│   │   ├── sikkim_2023_landslides.csv
-│   │   └── sikkim_2023_landslides.geojson
-│   │
-│   └── gsi/
-│       ├── gsi_dated_events.csv
-│       ├── gsi_historical_susceptibility.csv
-│       ├── gsi_landslide_inventory.csv
-│       ├── gsi_landslide_inventory_normalized.csv
-│       ├── gsi_model_training.csv
-│       ├── gsi_ndvi_features.csv
-│       ├── gsi_ner_training_table.csv
-│       ├── gsi_pseudo_negative_samples.csv
-│       ├── gsi_terrain_features.csv
-│       ├── gsi_year_only_inventory.csv
-│       ├── model_metrics.json
-│       └── test_predictions.csv
+│   │   ├── gsi_year_only_inventory.csv
+│   │   ├── model_metrics.json
+│   │   └── test_predictions.csv
+│   └── landslides/
+│       ├── sikkim_2023_landslides.csv
+│       └── sikkim_2023_landslides.geojson
 │
-├── frontend/
+├── docs/
+│   ├── index.html
 │   ├── css/
-│   │   └── styles.css
-│   │
 │   ├── js/
-│   │   ├── app.js
-│   │   └── data.js
-│   │
-│   └── index.html
+│   └── maps/
 │
 ├── maps/
 │   └── landslide_v1_risk_map.html
@@ -555,503 +319,91 @@ LandShield-India/
 ├── normalize_gsi_inventory.py
 ├── prepare_gsi_training_data.py
 ├── sample_pseudo_negatives.py
-│
-├── .gitignore
 └── README.md
-```
-
----
-
-# 🐍 Core Processing Scripts
-
-The repository contains separate scripts for different stages of the geospatial pipeline.
-
-| Script                                     | Purpose                                           |
-| ------------------------------------------ | ------------------------------------------------- |
-| `add_landslide_labels.py`                  | Adds landslide-related labels to datasets         |
-| `build_gsi_training_table.py`              | Builds a training table from GSI-derived features |
-| `build_india_environmental_features.py`    | Prepares environmental feature layers             |
-| `clean_gsi_inventory.py`                   | Cleans landslide inventory data                   |
-| `compute_historical_susceptibility_gsi.py` | Computes historical susceptibility information    |
-| `compute_hybrid_risk.py`                   | Combines risk-related components                  |
-| `extract_gsi_pdf.py`                       | Extracts information from GSI PDF-based sources   |
-| `fetch_ndvi_gsi.py`                        | Prepares NDVI-related features                    |
-| `fetch_terrain_features_gsi.py`            | Prepares terrain-related features                 |
-| `make_model_risk_map.py`                   | Generates model-based GIS risk maps               |
-| `normalize_gsi_inventory.py`               | Normalizes landslide inventory information        |
-| `prepare_gsi_training_data.py`             | Prepares ML-ready training data                   |
-| `sample_pseudo_negatives.py`               | Generates pseudo-negative/background samples      |
-
----
-
-# 🖥️ Frontend
-
-The project includes a lightweight web-based frontend prototype.
-
-```text
-frontend/
-│
-├── index.html
-├── css/
-│   └── styles.css
-│
-└── js/
-    ├── app.js
-    └── data.js
-```
-
-The frontend is intended to provide a user-friendly interface for visualizing:
-
-* Risk information
-* GIS layers
-* Locations
-* Risk categories
-* Impact information
-* Decision-support outputs
-
-The map component can be accessed through the generated HTML map under:
-
-```text
-maps/landslide_v1_risk_map.html
 ```
 
 ---
 
 # 🛠️ Technology Stack
 
-## Programming
+### Frontend
 
-* Python
-* JavaScript
-* HTML
-* CSS
+- HTML5
+- CSS3
+- JavaScript
+- Leaflet
+- Chart.js
+- GitHub Pages
 
-## Machine Learning
+### Machine Learning
 
-* XGBoost
-* Random Forest
-* Scikit-learn
-* SHAP
+- Python
+- XGBoost
+- Scikit-learn
+- PyTorch-based AI components in the broader GeoGuard/TerraGuard workflow
 
-## Geospatial Processing
+### Geospatial Processing
 
-* GeoPandas
-* Rasterio
-* GeoJSON
-* GIS raster/vector processing
+- GeoPandas
+- Raster/vector processing
+- GeoJSON
+- GIS-based interactive mapping
 
-## Visualization
+### AI Assessment
 
-* GIS-based risk maps
-* Interactive web maps
-* GeoJSON layers
-* HTML/JavaScript frontend
-
-## Data
-
-* Rainfall / environmental data
-* DEM / elevation
-* Slope
-* NDVI
-* Historical landslide inventories
-* Infrastructure/geospatial data
-* Field observations
+- GeoGuard SegFormer
+- Local Gemma 2 reasoning
+- FastAPI backend for TerraGuard/GeoGuard integration
 
 ---
 
-# 🔄 End-to-End Architecture
+# ⚠️ Prototype Status & Responsible Use
 
-```text
-                 ┌──────────────────────────┐
-                 │      DATA SOURCES        │
-                 ├──────────────────────────┤
-                 │ Rainfall / Environment   │
-                 │ DEM / Elevation          │
-                 │ Slope                    │
-                 │ Historical Landslides    │
-                 │ NDVI / Vegetation        │
-                 │ GIS / Infrastructure     │
-                 │ Field Observations       │
-                 └────────────┬─────────────┘
-                              │
-                              ▼
-                 ┌──────────────────────────┐
-                 │ DATA CLEANING &          │
-                 │ FEATURE ENGINEERING      │
-                 └────────────┬─────────────┘
-                              │
-                              ▼
-                 ┌──────────────────────────┐
-                 │ MACHINE LEARNING MODEL   │
-                 │ XGBoost / Random Forest  │
-                 └────────────┬─────────────┘
-                              │
-                              ▼
-                 ┌──────────────────────────┐
-                 │     RISK ASSESSMENT      │
-                 │      Score: 0–100        │
-                 └────────────┬─────────────┘
-                              │
-                 ┌────────────┴────────────┐
-                 ▼                         ▼
-       ┌───────────────────┐     ┌───────────────────┐
-       │ EXPLAINABLE AI    │     │   GIS MAPPING     │
-       │      SHAP         │     │  Risk Heatmap     │
-       └─────────┬─────────┘     └─────────┬─────────┘
-                 │                         │
-                 └────────────┬────────────┘
-                              ▼
-                 ┌──────────────────────────┐
-                 │   IMPACT ASSESSMENT      │
-                 ├──────────────────────────┤
-                 │ Roads                    │
-                 │ Settlements              │
-                 │ Hospitals                │
-                 │ Schools                  │
-                 │ Critical Infrastructure  │
-                 └────────────┬─────────────┘
-                              │
-                              ▼
-                 ┌──────────────────────────┐
-                 │ RESPONSE PRIORITIZATION  │
-                 └────────────┬─────────────┘
-                              │
-                              ▼
-                 ┌──────────────────────────┐
-                 │   DECISION SUPPORT       │
-                 └──────────────────────────┘
-```
+LandShield India is a **Smart India Hackathon prototype and decision-support system**.
 
----
+It is not a replacement for:
 
-# 🔐 Responsible & Safe Use
+- Official disaster warnings
+- Government hazard notifications
+- Geological or engineering surveys
+- Ground-truth verification
+- Statutory relocation decisions
 
-LandShield India is currently a **prototype / research and hackathon project**.
+A model score is an indication for investigation and prioritization, not proof that a disaster will occur at a particular location or time.
 
-It is intended to **support — not replace — professional disaster-management decisions**.
-
-The platform should not replace:
-
-* Government authorities
-* Geological experts
-* Official warning systems
-* Field inspections
-* Emergency-management protocols
-
-AI-generated risk assessments should be combined with:
-
-* Official information
-* Expert knowledge
-* Field verification
-* Appropriate emergency-management procedures
-
-before critical decisions are made.
-
----
-
-# ⚠️ Limitations
-
-The current prototype has several important limitations.
-
-### 1. Historical Inventory Completeness
-
-Not every landslide is necessarily recorded in available inventories.
-
-Therefore:
-
-> **No recorded event does not necessarily mean no landslide occurred.**
-
----
-
-### 2. Data Availability
-
-Different regions may have different levels of:
-
-* Historical coverage
-* Environmental data
-* Terrain data
-* Satellite availability
-* Infrastructure information
-
----
-
-### 3. Model Generalization
-
-A model developed using one region or dataset may not automatically generalize to every part of the Northeastern Region.
-
-Expansion should therefore involve:
-
-* Additional training data
-* Regional validation
-* Independent testing
-* Expert review
-
----
-
-### 4. Prototype Risk Score
-
-The 0–100 risk score is currently a decision-support representation.
-
-It should not be interpreted as:
-
-> **"There is an 82% chance of a landslide."**
-
-For operational use, the model would require proper probability calibration and validation.
-
----
-
-### 5. Field Verification
-
-Remote sensing and environmental models cannot capture every local condition.
-
-Ground observations remain important for operational disaster management.
-
----
-
-# 🧪 Validation Strategy
-
-Future validation should include multiple levels.
-
-## Spatial Validation
-
-Hold out geographic regions during testing.
-
-```text
-Training Regions
-       ↓
-Model
-       ↓
-Previously Unseen Region
-       ↓
-Evaluation
-```
-
-## Temporal Validation
-
-Where dated historical events are available:
-
-```text
-Earlier Events
-     ↓
-Training
-
-Later Events
-     ↓
-Testing
-```
-
-## Independent Inventory Validation
-
-Predictions can be compared with additional landslide inventories that were not used during training.
-
-## Expert Validation
-
-Geological and disaster-management expertise can be used to evaluate whether high-risk areas are physically plausible.
+Before operational deployment, the system requires additional validation, including independent spatial/temporal testing, improved time-safe historical features, broader hazard coverage, validated vulnerability data, carrying-capacity methodology and expert review.
 
 ---
 
 # 🚀 Future Development
 
-LandShield India is designed as a scalable architecture rather than a single static model.
+The next stages of LandShield India are aligned with the full SIH26001 objective:
 
-## Phase 1 — Current Prototype
-
-* Historical landslide processing
-* Terrain feature generation
-* Environmental feature generation
-* NDVI integration
-* ML training pipeline
-* Risk scoring
-* SHAP explanations
-* GIS risk visualization
-* Sikkim pilot
-* Impact prioritization
-* Frontend prototype
+1. **Expand beyond landslide-only V1 into a multi-hazard risk framework.**
+2. **Develop hazard-based Red-Zone identification.**
+3. **Integrate habitation and population vulnerability.**
+4. **Add candidate relocation-site suitability assessment.**
+5. **Implement carrying-capacity assessment for safer sites.**
+6. **Prioritize vulnerable habitations for immediate, short-term and medium-term relocation.**
+7. **Integrate verified field observations into the decision-support loop.**
+8. **Strengthen spatial and temporal validation.**
+9. **Expand geographic coverage across India.**
 
 ---
 
-## Phase 2 — Advanced Monitoring
+# 🏆 Smart India Hackathon
 
-Potential future extensions include:
-
-### 🛰️ Sentinel-1 InSAR
-
-Use radar-based ground-deformation information to identify possible changes in terrain stability.
-
-### 📷 Automated Image Analysis
-
-Use computer vision to analyze field photographs for indicators such as:
-
-* Ground cracks
-* Landslide debris
-* Road blockage
-* Slope damage
-
-### 📱 Multilingual Reporting
-
-Allow citizens and field personnel to submit reports in regional languages.
-
-### 📡 Offline Synchronization
-
-Enable field personnel to collect observations in areas with limited connectivity and synchronize them when connectivity becomes available.
-
-### 📈 Long-Term Risk Timelines
-
-Track how risk indicators change over time.
-
-### 🤖 Continuous Model Improvement
-
-Validated observations can eventually be incorporated into future model-training cycles.
+**Problem Statement ID:** SIH26001  
+**Title:** Intelligent Identification of Hazard-Based Red Zones, Carrying Capacity Assessment, and Immediate Relocation Needs for Vulnerable Habitations  
+**Category:** Software  
+**Theme:** Disaster Management  
+**Organization:** Ministry of Home Affairs  
+**Department:** National Disaster Response Force (NDRF), DM Division  
 
 ---
 
-# 🌐 Scalability Across Northeast India
+## 👥 Team Six Bits
 
-The current prototype focuses on Sikkim.
+Built for **Smart India Hackathon 2026**.
 
-The long-term architecture is intended to support the wider NER.
-
-Potential expansion can include:
-
-```text
-Sikkim
-  ↓
-Arunachal Pradesh
-  ↓
-Assam
-  ↓
-Meghalaya
-  ↓
-Nagaland
-  ↓
-Manipur
-  ↓
-Mizoram
-  ↓
-Tripura
-```
-
-The system architecture is designed so that the same processing and visualization pipeline can be adapted to different regions as suitable data becomes available.
-
----
-
-# 📌 Project Status
-
-**Status: Prototype / MVP Development**
-
-The repository currently contains:
-
-* ✅ Data-processing scripts
-* ✅ Geospatial feature-generation workflows
-* ✅ Machine-learning pipeline components
-* ✅ Training datasets
-* ✅ Model evaluation outputs
-* ✅ Frontend prototype
-* ✅ GIS risk-map generation
-* ✅ Sikkim pilot data
-* ✅ Historical susceptibility processing
-* ✅ Environmental and terrain feature processing
-
-The project is being developed toward a scalable landslide-risk monitoring and response platform for the **Northeastern Region of India**.
-
----
-
-# 🎯 What Makes LandShield India Different?
-
-Traditional approaches may focus primarily on:
-
-> **"Where is the landslide hazard?"**
-
-LandShield India aims to go one step further:
-
-```text
-WHERE?
-  ↓
-How risky is it?
-
-WHY?
-  ↓
-What factors are contributing?
-
-WHAT?
-  ↓
-What could be affected?
-
-WHICH?
-  ↓
-Which location deserves priority?
-
-VERIFY
-  ↓
-What are field officers/citizens observing?
-
-ACT
-  ↓
-Where should response efforts be focused?
-```
-
-This creates a complete decision-support chain:
-
-> ### **Risk → Explanation → Impact → Priority → Action**
-
----
-
-# 🏆 Project Vision
-
-Our vision is to build a scalable, explainable and human-assisted landslide decision-support platform that can help disaster-management teams move from fragmented datasets to a common spatial understanding of risk.
-
-LandShield India aims to transform:
-
-> **Geospatial Data → AI Insight → Actionable Decision Support**
-
----
-
-# 👨‍💻 Team
-
-## Team Six Bits
-
-**Smart India Hackathon 2026**
-
-**Problem Statement:** SIH26001
-**Domain:** Disaster Management
-
----
-
-# 📄 License
-
-This project is currently developed as a **Smart India Hackathon prototype**.
-
-License and deployment terms can be defined as the project progresses toward public or operational release.
-
----
-
-# ⚠️ Disclaimer
-
-LandShield India is a prototype and research project.
-
-The system does **not** provide guaranteed landslide predictions or official emergency warnings.
-
-Risk scores, maps and model outputs are intended for **research, demonstration and decision-support purposes** and should be interpreted together with official information, field observations and expert assessment.
-
----
-
-# ⭐ LandShield India
-
-### **From Landslide Risk to Actionable Response**
-
-> **Predict → Verify → Assess Impact → Prioritize → Alert**
-
-**Built by Team Six Bits for Smart India Hackathon 2026**
-
-```
-
-### One important change I made
-
-I deliberately **didn't overclaim the AI**. For example, instead of saying:
-
-> `82/100 = 82% chance of landslide`
-
-the README clearly says it's a **prototype risk indicator**. That's much safer and more professional for judges, because your current repository is a prototype and your screenshots themselves already acknowledge that limitation.
-
-Also, this version covers the things visible in your repository: **GSI processing, Sikkim data, pseudo-negative sampling, historical susceptibility, environmental/terrain/NDVI features, ML, SHAP, GIS mapping, frontend, impact prioritization, human verification, validation, limitations and future scope.**
-```
+> **Risk → Vulnerability → Verification → Relocation Priority → Action**
