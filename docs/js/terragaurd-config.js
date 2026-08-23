@@ -18,3 +18,28 @@ window.TERRAGUARD_CONFIG = {
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fix);
   else fix();
 })();
+
+// TerraGuard is created dynamically by terragaurd.js after app.js has already
+// cached the original .page NodeList. When another sidebar item is clicked,
+// app.js hides only the original pages, so the dynamic TerraGuard page would
+// otherwise remain visible at the bottom of the new page. Use event delegation
+// on the nav list to remove it whenever a non-TerraGuard page is selected.
+(function fixTerraGuardNavigation(){
+  function install(){
+    var navList = document.getElementById('navList');
+    if(!navList || navList.dataset.tgNavFix === '1') return;
+    navList.dataset.tgNavFix = '1';
+
+    navList.addEventListener('click', function(event){
+      var item = event.target.closest('.nav-item');
+      if(!item) return;
+      if(item.getAttribute('data-page') !== 'terragaurd'){
+        var page = document.getElementById('page-terragaurd');
+        if(page) page.classList.remove('active');
+      }
+    });
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', install);
+  else install();
+})();
