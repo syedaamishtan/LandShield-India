@@ -1,7 +1,7 @@
 // TerraGuard API configuration.
 // Change only this URL when the GeoGuard backend tunnel/host changes.
 window.TERRAGUARD_CONFIG = {
-  API_URL: "https://scholar-bigger-experts-healthy.trycloudflare.com"
+  API_URL: "https://pirates-pursuant-filtering-enough.trycloudflare.com"
 };
 
 // GitHub Pages publishes this app from /docs, so map files are relative to /docs.
